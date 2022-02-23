@@ -4,3 +4,10 @@
  * HINT:
  * Use `unnest(special_features)` in a subquery.
  */
+
+SELECT title 
+FROM (
+    SELECT title,rating, (unnest(special_features)) as feature from film
+) t
+WHERE rating = 'G' and feature = 'Trailers';
+
